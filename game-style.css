@@ -1,0 +1,248 @@
+/*SITE SETUP*/
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+img {
+    width: 100%;
+}
+
+:root{
+--color-dark-blue:#152040; /* darkblue */
+--color-blue:#0588A6; /* blue */
+--color-beige-white:#FFF9ED;/* white */
+--color-light-blue:#07C4D9; /* aqua */
+--color-yellow:#FDAF2B; /* yellow */
+--color-light-yellow:#FFE69B; /* light yellow */
+--color-red-1:#D14242; /* red */
+}
+
+
+
+/* FONTS */
+@font-face {
+    font-family: MoonGet;
+    src: url(fonts/moon_get-Heavy.ttf)
+}   
+
+@font-face {
+    font-family: Neue;
+    src: url(fonts/NeueHaasUnica/NeueHaasUnica-Bold.ttf)
+}   
+
+@font-face{
+    font-family: BuiltTitling;
+    src: url(fonts/BuiltTitling/built\ titling\ bd.ttf)
+}
+
+/*GAME STYLES*/
+.info-box {
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+  border-radius: 10px; /* Rounded corners for the rectangle */
+  padding: 20px; /* Padding inside the box */
+  margin-top: 20px; /* Margin around the box */
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Subtle shadow for a lifted effect */
+  max-width: 600px; /* Optional: limit the width of the box */
+  text-align: center; /* Center the text inside the box */
+  color: #fff; /* White font color */
+  font-family: 'Neue', sans-serif; /* Apply the custom font */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.draggable-elements {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping to multiple lines if needed */
+  gap: 16px; /* Add space between draggable elements */
+  margin: 30px;
+}
+
+
+.draggable {
+  height: 200px; /* Same as droppable height */
+  width: 200px;  /* Same as droppable width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20; /* Remove extra margins */
+  cursor: move;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 30px; /* Apply the same border radius */
+  background-size: cover; /* Ensure background images cover the element */
+  background-position: center;
+  padding: 0;
+  outline: none; /* Remove default outline */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.draggable img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire box */
+  border-radius: 30px; /* Apply the same border radius */
+}
+
+/* Removed hover opacity effect */
+.draggable:hover {
+  /* Removed opacity change on hover */
+}
+
+.droppable-elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the droppable elements horizontally */
+}
+
+.Answers {
+  display: flex; /* Use flexbox for horizontal alignment */
+  flex-direction: row; /* Align items in a row */
+  justify-content: center; /* Center align items horizontally */
+  align-items: flex-start; /* Align items to the start of the container */
+  gap: 32px; /* Space between droppable elements and paragraphs */
+  margin: 16px 0; /* Top and bottom margin for spacing */
+}
+
+.droppable {
+  height: 205px; /* Same as draggable height */
+  width: 205px;  /* Same as draggable width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px dashed transparent; /* Transparent border */
+  background-image: url('assets/GALAXY ILUST_trans.png'); /* Set the background image */
+  background-size: cover; /* Ensure the image covers the entire box */
+  background-position: center;
+  transition: border-width 0.2s, transform 0.2s, background-color 0.4s, box-shadow 0.2s;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 30px; /* Apply the same border radius */
+  padding: 0; /* Ensure no padding inside the element */
+  outline: none; /* Remove default outline */
+  margin-left: 45px;
+  margin-right: 45px; /* Add space around each droppable element */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 1); /* Light shadow for a dynamic effect */
+}
+
+/* Drag and Drop Related Styling */
+.droppable.droppable-hover:not(.dropped) {
+  border-width: 5px;
+  transform: scale(1.1); /* Only apply scale effect when hovered and not dropped */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly larger shadow on hover */
+}
+
+.droppable.dropped {
+  border-style: solid;
+  color: #fff;
+  transform: none; /* Reset any scaling when the element is in the dropped state */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow to normal */
+}
+
+/* Removed opacity adjustments for dragged elements */
+.draggable.dragged {
+  user-select: none;
+  cursor: default;
+  opacity: 1; /* Ensure the opacity is always 100 */
+}
+
+.Question, .Answers {
+  display: none;
+}
+
+
+@media (max-width: 600px) {
+  html { font-size: 14px; }
+  .draggable-elements { margin: 24px; }
+}
+
+#submit-button {
+  margin-bottom: 30px;
+  padding: 10px 30px; /* Increase padding for a larger button */
+  font-size: 18px; /* Increase font size */
+  cursor: pointer;
+  background-color: #e6c928; /* Gold color background */
+  color: #fff; /* Black font color */
+  font-family: 'MoonGet', sans-serif; /* Apply the custom font */
+  font-weight: normal; /* Remove bold */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Opaque shadow */
+}
+
+#submit-button:hover {
+  background-color: #FDAF2B; /* Slightly darker gold for hover effect */
+}
+
+/* Individual paragraphs */
+
+.Paragraphs {
+  display: flex;
+  justify-content: center; /* Center the paragraphs horizontally */
+  align-items: center; /* Center the paragraphs vertically */
+  flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+.Paragraphs p {
+  font-family: 'BuiltTitling', sans-serif; /* Apply the new font */
+  color: #e6c928; /* Gold font color */
+  font-size: 20px; /* Adjust font size as needed */
+  background-color: transparent; /* Transparent background */
+  width: 205px; /* Match the width of the droppable elements */
+  height: 30px; /* Match the height of the droppable elements */
+  text-align: center; /* Center text horizontally */
+  line-height: 30px; /* Center text vertically within the height */
+  margin: 45px; /* Consistent margin around each paragraph */
+  display: inline-block; /* Inline-block for horizontal alignment */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);; /* Remove the box shadow */
+
+}
+
+/*MEDIA QUERIES*/
+
+@media only screen and (max-width: 768px){
+  .draggable {
+    height: 100px;
+    width: 100px;
+  }
+
+  .droppable{
+    height: 105px;
+    width: 105px;
+  }
+
+  .Paragraphs p{
+    margin: 0 -3px -3px  -3px;
+  }
+    }
+    
+    @media only screen and (max-width: 428px){
+        
+      .droppable{
+        margin-left: 0px;
+        margin-right: 10px;
+      }
+
+      .Paragraphs P{
+        margin: 0;
+        width: 115px;
+        font-size: 12pt;
+      }
+
+      .draggable {
+       margin-right: 0px
+      }
+    }
